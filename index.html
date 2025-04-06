@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas as Formas de Hello World</title>
+    <style>
+        /* 1. CSS Interno - Estilizando elementos */
+        .hello-css {
+            color: #2c3e50;
+            font-family: Arial, sans-serif;
+            border: 2px solid #3498db;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        /* 2. CSS Criando Conteúdo */
+        .hello-before::before {
+            content: "Hello World (CSS Generated Content)";
+            display: block;
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* 3. Animação CSS */
+        @keyframes helloAnimation {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .hello-animated {
+            animation: helloAnimation 1.5s ease-out;
+            color: #9b59b6;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todas as Formas de Hello World</h1>
+
+    <!-- ========== HTML ========== -->
+    <section>
+        <h2>1. Métodos HTML</h2>
+        
+        <!-- 1. Tag h1 -->
+        <h3>Hello World (h1)</h3>
+        
+        <!-- 2. Tag p -->
+        <p>Hello World (p)</p>
+        
+        <!-- 3. Tag div -->
+        <div>Hello World (div)</div>
+        
+        <!-- 4. Tag span -->
+        <span>Hello World (span)</span>
+        
+        <!-- 5. Texto direto -->
+        Hello World (texto direto)
+    </section>
+
+    <!-- ========== CSS ========== -->
+    <section>
+        <h2>2. Métodos CSS</h2>
+        
+        <!-- 1. CSS Inline -->
+        <p style="color: #e67e22; font-weight: bold;">Hello World (CSS Inline)</p>
+        
+        <!-- 2. CSS Interno -->
+        <div class="hello-css">Hello World (CSS Interno)</div>
+        
+        <!-- 3. CSS Criando Conteúdo -->
+        <div class="hello-before"></div>
+        
+        <!-- 4. CSS Animado -->
+        <div class="hello-animated">Hello World (Animado)</div>
+    </section>
+
+    <!-- ========== JavaScript ========== -->
+    <section>
+        <h2>3. Métodos JavaScript</h2>
+        
+        <!-- 1. document.write -->
+        <script>
+            document.write('<p>Hello World (document.write)</p>');
+        </script>
+        
+        <!-- 2. innerHTML -->
+        <div id="hello-inner"></div>
+        <script>
+            document.getElementById('hello-inner').innerHTML = 
+                '<p style="color: #27ae60;">Hello World (innerHTML)</p>';
+        </script>
+        
+        <!-- 3. createElement -->
+        <div id="hello-create"></div>
+        <script>
+            const newElement = document.createElement('p');
+            newElement.textContent = 'Hello World (createElement)';
+            newElement.style.color = '#2980b9';
+            document.getElementById('hello-create').appendChild(newElement);
+        </script>
+        
+        <!-- 4. alert -->
+        <button onclick="alert('Hello World (alert)')">Mostrar Alert</button>
+        
+        <!-- 5. console.log -->
+        <button onclick="console.log('Hello World (console.log)')">Mostrar no Console</button>
+    </section>
+
+    <!-- ========== Métodos Avançados ========== -->
+    <section>
+        <h2>4. Métodos Avançados</h2>
+        
+        <!-- 1. SVG -->
+        <svg width="200" height="30" style="display: block; margin: 10px 0;">
+            <text x="0" y="20" font-family="Verdana" font-size="16" fill="#c0392b">
+                Hello World (SVG)
+            </text>
+        </svg>
+        
+        <!-- 2. Canvas -->
+        <canvas id="hello-canvas" width="200" height="30" style="border: 1px solid #ddd;"></canvas>
+        <script>
+            const canvas = document.getElementById('hello-canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.font = '16px Arial';
+            ctx.fillStyle = '#16a085';
+            ctx.fillText('Hello World (Canvas)', 10, 20);
+        </script>
+        
+        <!-- 3. Web Components -->
+        <hello-world></hello-world>
+        <script>
+            class HelloWorld extends HTMLElement {
+                connectedCallback() {
+                    this.innerHTML = '<p style="color:#8e44ad;">Hello World (Web Component)</p>';
+                }
+            }
+            customElements.define('hello-world', HelloWorld);
+        </script>
+        
+        <!-- 4. Usando Template Literals -->
+        <div id="hello-template"></div>
+        <script>
+            const name = 'World';
+            document.getElementById('hello-template').innerHTML = `
+                <p style="
+                    color: #d35400;
+                    background: #f9f9f9;
+                    padding: 8px;
+                    border-left: 3px solid #d35400;
+                ">
+                    Hello ${name} (Template Literals)
+                </p>
+            `;
+        </script>
+    </section>
+
+    <!-- ========== Métodos Alternativos ========== -->
+    <section>
+        <h2>5. Métodos Alternativos</h2>
+        
+        <!-- 1. Usando meta tag (não recomendado) -->
+        <meta id="hello-meta" content="Hello World (meta tag)">
+        <script>
+            const metaContent = document.getElementById('hello-meta').content;
+            document.write(`<p>${metaContent}</p>`);
+        </script>
+        
+        <!-- 2. Usando title -->
+        <button onclick="alert(document.title)">Mostrar Title</button>
+        <script>
+            document.title = "Hello World (title) | " + document.title;
+        </script>
+        
+        <!-- 3. Usando data attributes -->
+        <div data-hello="World"></div>
+        <script>
+            const divData = document.querySelector('[data-hello]');
+            divData.innerHTML = `Hello ${divData.dataset.hello} (data attribute)`;
+        </script>
+    </section>
+</body>
+</html>
